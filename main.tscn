@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://omtq4npdthyk"]
+
+[ext_resource type="Script" uid="uid://dn05c6q8r2ifa" path="res://LevelTest1Script.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b82hl3d72j6qy" path="res://Player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://c2sm5ubskk3iw" path="res://icon.svg" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://pot7fp75b1p5" path="res://Bullet.tscn" id="3_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pj7l"]
+size = Vector2(127.95906, 128)
+
+[node name="Main" type="Node2D" unique_id=1872780000]
+script = ExtResource("1_1bvp3")
+
+[node name="Player" parent="." unique_id=661325333 instance=ExtResource("1_ig7tw")]
+position = Vector2(349, 274)
+bullets = [null]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1653031876]
+position = Vector2(500, 700)
+scale = Vector2(7.815, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=2084924758]
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1008803925]
+shape = SubResource("RectangleShape2D_2pj7l")
+
+[node name="Wall1" type="StaticBody2D" parent="." unique_id=53050575]
+position = Vector2(1014, 452)
+scale = Vector2(0.97015, 6.3115697)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall1" unique_id=796446951]
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1" unique_id=361150757]
+shape = SubResource("RectangleShape2D_2pj7l")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=792001982]
+position = Vector2(84.000015, 476)
+scale = Vector2(0.97015, 6.3115697)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall2" unique_id=1055896334]
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=563199683]
+shape = SubResource("RectangleShape2D_2pj7l")
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=2006946300]
+position = Vector2(584, 102)
+scale = Vector2(7.815, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ceiling" unique_id=922591743]
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=1846429060]
+shape = SubResource("RectangleShape2D_2pj7l")
+
+[node name="BulletStorage" type="Node" parent="." unique_id=264767180]
+process_mode = 4
+
+[node name="Bullet" parent="BulletStorage" unique_id=2134626274 instance=ExtResource("3_h2yge")]
+visible = false
+position = Vector2(500, 526)
+
+[node name="ActiveBullets" type="Node" parent="." unique_id=1776602865]
+
+[connection signal="shot_bullet" from="Player" to="." method="_on_player_shot_bullet"]
