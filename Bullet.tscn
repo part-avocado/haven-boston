@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://pot7fp75b1p5"]
 
 [ext_resource type="Script" uid="uid://ct5a1kd5sn3eq" path="res://bullet.gd" id="1_4s4u5"]
-[ext_resource type="Texture2D" uid="uid://c2sm5ubskk3iw" path="res://icon.svg" id="1_ayd6b"]
+[ext_resource type="Texture2D" uid="uid://2javgeyvhchf" path="res://assets/Bullet.png" id="2_4s4u5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pj7l"]
 size = Vector2(5, 5)
@@ -12,9 +12,17 @@ collision_mask = 14
 script = ExtResource("1_4s4u5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1594734701]
-scale = Vector2(0.291, 0.068)
-texture = ExtResource("1_ayd6b")
-offset = Vector2(-63.77, 0)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("2_4s4u5")
+offset = Vector2(-225, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=379600162]
+custom_minimum_size = Vector2(450, 150)
+offset_left = -453.3333
+offset_top = -80.0
+offset_right = -413.3333
+offset_bottom = -40.0
+color = Color(0, 0, 0, 0.35686275)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402972070]
 shape = SubResource("RectangleShape2D_2pj7l")

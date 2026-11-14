@@ -4,8 +4,9 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 signal shot_bullet(bul: Area2D)
+signal died
 
-var health = 3
+var health = 2
 
 @onready var shootTimer = $ShootTimer
 @onready var damageTimer = $DamageTimer
@@ -16,9 +17,12 @@ var bulletI = 0
 func hurt():
 	if damageTimer.is_stopped():
 		health -= 1
+		if health == 0:
+			died.emit()
+			return
 		damageTimer.start()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	$RichTextLabel.text = "Health: " + str(health)
 	var mousePos = get_global_mouse_position()
 	$Gun.look_at(mousePos)

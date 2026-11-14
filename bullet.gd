@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 600
+const SPEED = 700
 
 #var direction = Vector2.RIGHT
 var direction = Vector2(1.0/2, sqrt(3)/2)
@@ -9,7 +9,7 @@ var velocity = Vector2.ZERO
 @onready var bCastX = $BouncerX
 @onready var bCastY = $BouncerY
 #var bCastMag = SPEED/100*2
-var bCastMag = 10
+var bCastMag = 15
 
 func shoot(pos: Vector2, dir: Vector2):
 	position = pos
@@ -49,6 +49,6 @@ func _on_area_entered(area: Node2D) -> void:
 	if area.name.substr(0,5) == "Enemy":
 		area.kill()
 
-func _on_area_exited(area: Node2D) -> void:
+func _on_area_exited(_area: Node2D) -> void:
 	#bounceDebounce = false
 	pass

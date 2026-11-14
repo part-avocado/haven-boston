@@ -32,6 +32,9 @@ shape = SubResource("RectangleShape2D_2pj7l")
 [node name="ShootTimer" type="Timer" parent="." unique_id=533607356]
 one_shot = true
 
+[node name="DamageTimer" type="Timer" parent="." unique_id=597573721]
+one_shot = true
+
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=79341143]
 custom_minimum_size = Vector2(150, 0)
 offset_left = -34.0
@@ -40,7 +43,3 @@ offset_right = 91.0
 offset_bottom = -119.0
 theme_override_font_sizes/normal_font_size = 29
 text = "Health:"
-
-[node name="DamageTimer" type="Timer" parent="." unique_id=597573721]
-wait_time = 3.0
-one_shot = true

@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://beug5hjtjbtht"]
+
+[ext_resource type="Script" uid="uid://dn05c6q8r2ifa" path="res://LevelTest1Script.gd" id="1_nqeel"]
+[ext_resource type="PackedScene" uid="uid://pot7fp75b1p5" path="res://Bullet.tscn" id="2_u5lf4"]
+[ext_resource type="Texture2D" uid="uid://c2sm5ubskk3iw" path="res://icon.svg" id="3_7swbh"]
+[ext_resource type="Texture2D" uid="uid://bn3x2unve8i36" path="res://assets/Walls.png" id="4_ewulq"]
+[ext_resource type="Texture2D" uid="uid://be07ls452l2mv" path="res://assets/Background (2).png" id="5_6vscs"]
+[ext_resource type="Texture2D" uid="uid://dcr3b26jl6fha" path="res://assets/Crate1.png" id="6_otr1s"]
+[ext_resource type="PackedScene" uid="uid://dqq8oq0m8ukbg" path="res://Enemy.tscn" id="7_bptnd"]
+[ext_resource type="Texture2D" uid="uid://dfatdogmu3xkb" path="res://assets/Vase.png" id="7_u5lf4"]
+[ext_resource type="PackedScene" uid="uid://b82hl3d72j6qy" path="res://Player.tscn" id="8_gp5y5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pj7l"]
+size = Vector2(127.95906, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtp68"]
+size = Vector2(96, 104)
+
+[node name="Level3" type="Node2D" unique_id=1872780000]
+script = ExtResource("1_nqeel")
+nextLevel = "res://Level4.tscn"
+
+[node name="Level" type="Node" parent="." unique_id=1110283323]
+process_mode = 4
+
+[node name="BulletStorage" type="Node" parent="Level" unique_id=264767180]
+process_mode = 4
+
+[node name="Bullet" parent="Level/BulletStorage" unique_id=2134626274 instance=ExtResource("2_u5lf4")]
+visible = false
+position = Vector2(-296, -167)
+
+[node name="Bullet2" parent="Level/BulletStorage" unique_id=1455586930 instance=ExtResource("2_u5lf4")]
+visible = false
+position = Vector2(-157, -117)
+
+[node name="Bullet3" parent="Level/BulletStorage" unique_id=1252195408 instance=ExtResource("2_u5lf4")]
+visible = false
+position = Vector2(-251, -10)
+
+[node name="Geometry" type="Node" parent="Level" unique_id=302689687]
+
+[node name="Floor" type="StaticBody2D" parent="Level/Geometry" unique_id=1653031876]
+visible = false
+position = Vector2(495.00003, 745)
+scale = Vector2(7.815, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Geometry/Floor" unique_id=2084924758]
+texture = ExtResource("3_7swbh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Geometry/Floor" unique_id=1008803925]
+shape = SubResource("RectangleShape2D_2pj7l")
+
+[node name="Wall1" type="StaticBody2D" parent="Level/Geometry" unique_id=53050575]
+visible = false
+position = Vector2(1044.9999, 375.00003)
+scale = Vector2(0.97015, 6.3115697)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Geometry/Wall1" unique_id=796446951]
+texture = ExtResource("3_7swbh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Geometry/Wall1" unique_id=361150757]
+shape = SubResource("RectangleShape2D_2pj7l")
+
+[node name="Wall2" type="StaticBody2D" parent="Level/Geometry" unique_id=792001982]
+visible = false
+position = Vector2(-4.9999847, 375)
+scale = Vector2(0.97015, 6.3115697)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Geometry/Wall2" unique_id=1055896334]
+texture = ExtResource("3_7swbh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Geometry/Wall2" unique_id=563199683]
+shape = SubResource("RectangleShape2D_2pj7l")
+
+[node name="Ceiling" type="StaticBody2D" parent="Level/Geometry" unique_id=2006946300]
+visible = false
+position = Vector2(522.00006, 18)
+scale = Vector2(7.815, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Geometry/Ceiling" unique_id=922591743]
+texture = ExtResource("3_7swbh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Geometry/Ceiling" unique_id=1846429060]
+shape = SubResource("RectangleShape2D_2pj7l")
+
+[node name="Walls" type="TextureRect" parent="Level/Geometry" unique_id=1478259300]
+custom_minimum_size = Vector2(0, 700)
+custom_maximum_size = Vector2(1000, 700)
+offset_right = 1000.0
+offset_bottom = 576.0
+texture = ExtResource("4_ewulq")
+
+[node name="Ceil" type="TextureRect" parent="Level/Geometry" unique_id=855866056]
+custom_maximum_size = Vector2(1000, 700)
+offset_right = 1000.0
+offset_bottom = 700.0
+texture = ExtResource("5_6vscs")
+
+[node name="Crate" type="StaticBody2D" parent="Level/Geometry" unique_id=1722478645]
+position = Vector2(691, 424)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Geometry/Crate" unique_id=508475948]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_otr1s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Geometry/Crate" unique_id=2082838401]
+position = Vector2(2, 13)
+shape = SubResource("RectangleShape2D_wtp68")
+
+[node name="Crate2" type="StaticBody2D" parent="Level/Geometry" unique_id=1622893678]
+position = Vector2(324, 415.00003)
+scale = Vector2(1.5255587, 1.5255587)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Geometry/Crate2" unique_id=79351717]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_otr1s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Geometry/Crate2" unique_id=526552112]
+position = Vector2(2, 13)
+shape = SubResource("RectangleShape2D_wtp68")
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Geometry" unique_id=828669190]
+position = Vector2(812, 213.99997)
+scale = Vector2(0.116707884, 0.116707884)
+texture = ExtResource("7_u5lf4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Level/Geometry" unique_id=1685675126]
+position = Vector2(199, 194)
+scale = Vector2(0.116707884, 0.116707884)
+texture = ExtResource("7_u5lf4")
+
+[node name="ActiveBullets" type="Node" parent="Level" unique_id=1776602865]
+
+[node name="Enemies" type="Node" parent="Level" unique_id=1850769032]
+
+[node name="Enemy" parent="Level/Enemies" unique_id=868981965 instance=ExtResource("7_bptnd")]
+position = Vector2(818, 440)
+scale = Vector2(0.5, 0.5)
+
+[node name="Enemy2" parent="Level/Enemies" unique_id=2083858128 instance=ExtResource("7_bptnd")]
+position = Vector2(186, 391)
+scale = Vector2(0.5, 0.5)
+
+[node name="Enemy3" parent="Level/Enemies" unique_id=1611445337 instance=ExtResource("7_bptnd")]
+position = Vector2(217, 597)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player" parent="Level" unique_id=661325333 instance=ExtResource("8_gp5y5")]
+position = Vector2(477, 412)
+scale = Vector2(0.5, 0.5)
+bullets = [null]
+
+[node name="Control" type="Control" parent="." unique_id=857829222]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1399373644]
+custom_minimum_size = Vector2(1000, 700)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.3529412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1260562650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer" unique_id=1121618583]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "LEVEL 3"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="Control/VBoxContainer" unique_id=1214830783]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Start level"
+
+[node name="YouDied" type="Control" parent="Control" unique_id=548333975]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/YouDied" unique_id=285424629]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "You died :("
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control/YouDied" unique_id=1091099415]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 392.0
+offset_right = 571.0
+offset_bottom = 445.0
+theme_override_font_sizes/font_size = 32
+text = "Restart?"
