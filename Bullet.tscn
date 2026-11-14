@@ -7,6 +7,8 @@
 size = Vector2(5, 5)
 
 [node name="Bullet" type="Area2D" unique_id=2134626274]
+collision_layer = 4
+collision_mask = 14
 script = ExtResource("1_4s4u5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1594734701]
@@ -22,5 +24,5 @@ shape = SubResource("RectangleShape2D_2pj7l")
 [node name="BouncerX" type="RayCast2D" parent="." unique_id=966998388]
 target_position = Vector2(50, 0)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

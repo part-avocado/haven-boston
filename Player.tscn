@@ -1,25 +1,46 @@
 [gd_scene format=3 uid="uid://b82hl3d72j6qy"]
 
 [ext_resource type="Script" uid="uid://dx8fiwbwxgtin" path="res://player.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://c2sm5ubskk3iw" path="res://icon.svg" id="1_xhfnw"]
+[ext_resource type="Texture2D" uid="uid://coab6qsnwyedf" path="res://assets/LilGuy.png" id="2_kne1u"]
+[ext_resource type="Texture2D" uid="uid://c55va50udnwix" path="res://assets/Arm.png" id="3_e80uo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pj7l"]
-size = Vector2(128, 128)
+size = Vector2(106, 331)
 
-[node name="Player" type="CharacterBody2D" unique_id=661325333]
+[node name="Player" type="Area2D" unique_id=1792372365]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_kpjcp")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1236208881]
-texture = ExtResource("1_xhfnw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013824081]
-shape = SubResource("RectangleShape2D_2pj7l")
-
 [node name="Gun" type="Sprite2D" parent="." unique_id=21214328]
-scale = Vector2(0.75, 0.15)
-texture = ExtResource("1_xhfnw")
-offset = Vector2(175, 0)
+position = Vector2(60, 10)
+rotation = -0.0030394425
+texture = ExtResource("3_e80uo")
+offset = Vector2(88, -10)
 
 [node name="BulletStart" type="Marker2D" parent="Gun" unique_id=1115734677]
-position = Vector2(240, 0)
+position = Vector2(175, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1236208881]
+texture = ExtResource("2_kne1u")
+offset = Vector2(0, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013824081]
+position = Vector2(19, 47.5)
+shape = SubResource("RectangleShape2D_2pj7l")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=533607356]
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=79341143]
+custom_minimum_size = Vector2(150, 0)
+offset_left = -34.0
+offset_top = -159.0
+offset_right = 91.0
+offset_bottom = -119.0
+theme_override_font_sizes/normal_font_size = 29
+text = "Health:"
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=597573721]
+wait_time = 3.0
+one_shot = true

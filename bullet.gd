@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 500
+const SPEED = 600
 
 #var direction = Vector2.RIGHT
 var direction = Vector2(1.0/2, sqrt(3)/2)
@@ -43,9 +43,12 @@ func _physics_process(delta: float) -> void:
 
 var bounceDebounce = false
 
-func _on_body_entered(_body: Node2D) -> void:
-	pass
+func _on_area_entered(area: Node2D) -> void:
+	if area.name == "Player":
+		area.hurt()
+	if area.name.substr(0,5) == "Enemy":
+		area.kill()
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_area_exited(area: Node2D) -> void:
 	#bounceDebounce = false
 	pass
